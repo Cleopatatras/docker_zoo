@@ -12,4 +12,3 @@ mysql/
 # Symfony : caches, logs, vendor
 /app/var/
 /app/vendor/
-/app/public/uploads/

@@ -1,14 +1,11 @@
-# Fichiers et dossiers liés à MongoDB
-mongodb/
-*.lock
-*.turtle
-*.log
-
-# Fichiers et dossiers liés à MySQL
-mysql/
-*.cnf
-*.sock
 
 # Symfony : caches, logs, vendor
 /app/var/
 /app/vendor/
+
+# Fichiers et dossiers liés à MySQL
+mysql/
+*.sock
+
+mongodb/
+*.log

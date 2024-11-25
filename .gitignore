@@ -4,8 +4,8 @@
 /app/vendor/
 
 # Fichiers et dossiers liés à MySQL
-mysql/
+# mysql/
 *.sock
 
-mongodb/
-*.log
+# mongodb/
+ *.log

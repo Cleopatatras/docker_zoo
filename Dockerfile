@@ -18,6 +18,10 @@ RUN apt-get update \
     && a2enmod rewrite ssl socache_shmcb \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
+# Configurer Apache pour écouter sur le port dynamique de Heroku
+ENV APACHE_LISTEN_PORT ${PORT:-80}
+RUN echo "Listen $APACHE_LISTEN_PORT" >> /etc/apache2/ports.conf
+
 # Définir le répertoire de travail
 WORKDIR /var/www
 
@@ -28,7 +32,6 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN curl -sS https://get.symfony.com/cli/installer | bash \
     && mv /root/.symfony5/bin/symfony /usr/local/bin/symfony
 
-
-
-# Exposer le port 80 pour Heroku
-EXPOSE 80
+# Exposer le port (pour Heroku, on n'expose pas un port fixe, on laisse Apache gérer)
+# L'exposition du port est gérée dynamiquement sur Heroku via la variable $PORT
+EXPOSE $APACHE_LISTEN_PORT

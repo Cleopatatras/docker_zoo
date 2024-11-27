@@ -1,7 +1,7 @@
 FROM php:8.2-apache
 
 # Mise à jour et installation des dépendances
-RUN a2dismod mpm_event mpm_worker && a2enmod mpm_prefork
+RUN a2dismod mpm_event mpm_worker mpm_prefork && a2enmod mpm_prefork
 
 RUN apt-get update \
     && apt-get install -y build-essential curl zlib1g-dev g++ git libicu-dev zip libzip-dev \

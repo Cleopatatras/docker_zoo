@@ -3,7 +3,7 @@ FROM php:8.2-apache
 # Mise à jour et installation des dépendances
 RUN apt-get update \
     && apt-get install -y build-essential curl zlib1g-dev g++ git libicu-dev zip libzip-dev \
-    && libpng-dev libjpeg-dev libwebp-dev libfreetype6-dev libssl-dev pkg-config \
+    && apt-get install -y libpng-dev libjpeg-dev libwebp-dev libfreetype6-dev libssl-dev pkg-config \
     && docker-php-ext-install intl opcache pdo pdo_mysql exif \
     && pecl install apcu mongodb \
     && docker-php-ext-enable apcu mongodb \

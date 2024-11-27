@@ -1,5 +1,5 @@
 build:
   docker:
-    web: php/Dockerfile
+    web: Dockerfile
 run:
   web: apache2-foreground
